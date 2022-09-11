@@ -7,8 +7,8 @@ const NavBar =() =>{
     <header>
     <img src = {logo} alt = "" />
     <nav>
-    <a href="/#">Mens</a>
-    <a href="/#">Womens</a>
+    <a href="/#">Men</a>
+    <a href="/#">Women</a>
     <a href="/#">Kids</a>
     <CartWidget/>
     </nav>
