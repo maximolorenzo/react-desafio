@@ -23,7 +23,7 @@ const ItemListConteinter = (props) => {
             <h1>{props.greetings}</h1>
             
 
-            {!loading ? <div className="grid grid-cols-4 gap-4"><ItemList listProduct ={listProduct} /> </div> : <p>cargando...</p> }
+            {!loading ? <div className="grid md:grid-cols-3 sm:grid-cols-3 xs:grid-cols-1 gap-4"><ItemList listProduct ={listProduct} /> </div> : <p>cargando...</p> }
            
             {/*<ItemCount initial={1} stock={10} onAdd = {()=>{}} />*/}
             </>
