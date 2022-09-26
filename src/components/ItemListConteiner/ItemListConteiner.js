@@ -3,20 +3,31 @@ import ItemList from "../ItemList/ItemList"
 import products from "../../utils/products";
 import fetchProducts from "../../utils/fetchProduct"
 import { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const ItemListConteinter = (props) => {
 
     const [ listProduct , setListProduct] = useState([])
     const [loading , setLoading] = useState (true)
+    
+    const {category} = useParams ()
 
     useEffect (() => {
+        
         setLoading (true)
         fetchProducts (products)
-            .then (res =>{ 
-                setLoading(false)
-                setListProduct(res)
+            .then (res =>{
+                 
+                if (category) {
+                    
+                    setListProduct(res.filter (produ => produ.category === category))
+                    setLoading(false)
+                }else {
+                    setListProduct(res)
+                    setLoading(false)
+                }
             })
-    }, [] )
+    }, [category] )
 
         return(
             <>
