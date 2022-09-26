@@ -1,10 +1,10 @@
-This is a [React.js] proyect
+Este es un proyecto de [React.js] para el curso de CoderHouse 
 
-## Getting started
+## Para iniciarlo
 
-First ru the development server :
-npm start 
+Primero ejecuta la terminal:
+npm start
 
-open [http:/localhost:3000] whit your browser to see the page.
+abra [http:/localhost:3000] con su navegador para ver la página.
 
-This is a page of an e-commerce about sneakers and I use tailwind to make the css 
+Esta es una página de un e-commerce sobre sneakers y utilizo tailwind para hacer el css y react-router-dom para las armar la navegacion del poryecto
