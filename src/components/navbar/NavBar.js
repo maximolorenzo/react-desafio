@@ -8,11 +8,11 @@ const NavBar =() =>{
     
     return (
     
-    <header className='flex justify-between items-center'>
+    <header className='flex justify-between items-center bg-black '>
         <NavLink  to= "/">
-            <img className ="w-40" src = {logo} alt = "" />
+            <img className ="w-20 pl-5" src = {logo} alt = "" />
         </NavLink>
-    <nav className='w-1/4 flex flex-row justify-around'>
+    <nav className='w-1/4 flex flex-row justify-around text-white'>
     <NavLink to= "category/men">
         Men
     </NavLink>
