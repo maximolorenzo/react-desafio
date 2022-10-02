@@ -1,15 +1,17 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, } from 'react';
 import { NavLink } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 
+
 const ItemDetail =({listProduct}) => {
   
-
+  
   const [isAdded,setIsAdded] = useState(false)
 
   const onAdd = () => {
     setIsAdded(true)
+    
   }
 
   return (
@@ -31,7 +33,7 @@ const ItemDetail =({listProduct}) => {
                 <button className=" w-80 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">Ir al carrito </button>
               </NavLink>
               :
-              <ItemCount initial={listProduct.initial} stock={listProduct. stock} onAdd={onAdd}/>
+              <ItemCount initial={listProduct.initial} stock={listProduct.stock} onAdd={onAdd}/>
               }    
             
 

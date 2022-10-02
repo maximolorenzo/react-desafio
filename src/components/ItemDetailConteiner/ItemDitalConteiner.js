@@ -16,7 +16,7 @@ const  ItemDitalConteiner = () => {
         .then (res => {
             if(id) {
                 setLoading(false)
-                console.log(id);
+                
                 setListProduct(res.find (item => item.id == id ))
             }})
             
