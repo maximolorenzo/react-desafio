@@ -4,22 +4,22 @@ import ItemListConteinter from './components/ItemListConteiner/ItemListConteiner
 import ItemDitalConteiner from './components/ItemDetailConteiner/ItemDitalConteiner.js';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Cart from './components/Cart/Cart.js'
-import {CartContextProvider} from './context/CartContex'
+import {CartContextProvider} from './context/CartContext'
 function App() {
   return (
     <>
 
-    <BrowserRouter>
     <CartContextProvider>
-    <NavBar />
+    <BrowserRouter>
+    <NavBar/>
       <Routes>
         <Route path='/' element = {<ItemListConteinter greetings = "Bienvenidos !" />}  />
         <Route path='/category/:category' element = {<ItemListConteinter greetings = "Bienvenidos !" />}  />
         <Route path='/product/:id' element = {<ItemDitalConteiner />} />
         <Route path='/cart' element = {<Cart/>} />
       </Routes>
-    </CartContextProvider>
     </BrowserRouter>
+    </CartContextProvider>
    </>
   );
 }

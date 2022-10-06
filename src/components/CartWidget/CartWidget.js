@@ -1,17 +1,17 @@
-import React from 'react'
+import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import { useCartContex } from "../../context/CartContext";
 
-const CartWidget =() =>{
-    return (
-        <>
-        <NavLink to= "/cart">
-            <FaShoppingCart/>
-        </NavLink>
-        </>
-    )
+const CartWidget = () => {
+  const { totalQuantity } = useCartContex();
+  return (
+    <div className="flex justify-evenly items-center">
+      <div className="pr-2">
+        <FaShoppingCart />
+      </div>
+      <p>{totalQuantity()}</p>
+    </div>
+  );
+};
 
-    
-}
-
-export { CartWidget }
+export { CartWidget };
