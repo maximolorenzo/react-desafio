@@ -1,31 +1,41 @@
 import { useState, useEffect } from "react"
-import products from "../../utils/products"
-import fetchProducts from "../../utils/fetchProduct"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
+import { db } from "../../firebase/firebase" 
+import {doc, getDocs, collection} from "firebase/firestore"
 
 const  ItemDitalConteiner = () => {
 
-    const [listProduct , setListProduct] = useState({})
+    const [listProduct , setListProduct] = useState(null)
     const [loading , setLoading] = useState (true)
 
     const {id} = useParams ()
+
     useEffect (() =>{
         setLoading (true)
-    fetchProducts (products)
-        .then (res => {
-            if(id) {
-                setLoading(false)
-                
-                setListProduct(res.find (item => item.id == id ))
-            }})
-            
-    } , [])
-    
+        const productsCollection = collection(db, "products")
+        const refDoc = doc.get(productsCollection,id)
+        console.log(id);
+        getDocs(refDoc)
+        .then((result) => {
+            return setListProduct({
+                id: result.id,
+                ...result.data()
+            })
+        })
+        .cath((e) => {
+            console.log(e);
+        })
+        .finally(() => { 
+            setLoading(false) 
+        })
+        
+    }, [id])
+
     
     return (
     <>
-        {!loading ? <ItemDetail listProduct = {listProduct}/> : <p>cargando...</p> }
+        {loading || !listProduct ? <p>cargando...</p> :<ItemDetail listProduct = {listProduct}/>  }
     </>
     )
 }

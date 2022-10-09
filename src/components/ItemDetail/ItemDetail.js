@@ -16,7 +16,7 @@ const ItemDetail =({listProduct}) => {
     setIsAdded(true)
     
   }
-console.log(cartList);
+console.log(listProduct);
   return (
     <>
     <div className='grid grid-cols-2'>

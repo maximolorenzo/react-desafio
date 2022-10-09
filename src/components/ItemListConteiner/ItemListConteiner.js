@@ -15,9 +15,12 @@ const ItemListConteinter = (props) => {
 
     useEffect (() => {
         const productCollection = collection(db, "products")
-        const qry = query(productCollection, where('product.category','==','category'))
-        getDocs(qry)
+        
+        const qry = query(productCollection, where('category','==',category || null))
+        
+        getDocs(category ? qry : productCollection )
         .then((data)=>{
+            console.log(data);
             
             const list = data.docs.map((product) =>{
                 return {
@@ -27,6 +30,9 @@ const ItemListConteinter = (props) => {
             }) 
             setListProduct(list)
         })
+        .catch((e)=>{
+            console.log(e);
+        }) 
         .finally(()=>{
             setLoading(false)
         })
